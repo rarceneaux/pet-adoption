@@ -1,3 +1,6 @@
+
+// Pets Array of pet objects to Loop Over
+
 let pets = [
 
           {
@@ -85,17 +88,17 @@ let pets = [
             typeofPet:'Dino',
           }];
 
+
+// Print-To-Dom = (PTD) Function
 const printToDom = (stringToPrint, divId) =>{
   const selectedDiv = document.getElementById(divId);
   selectedDiv.innerHTML += stringToPrint;
 };
 
-
-
+// Card Builder Function to loop over pet array & build pet cards and PTD 
 const cardBuilder = () => {
   petString = '';
   for(let i =0;i< pets.length;i++){
-    // console.log(pets[i]);
   petString += `<div class='card'>`;
   petString += `<div class='top'>`;
   petString += `<h1 class='title'>${pets[i].name}</h1>`;
@@ -113,6 +116,7 @@ printToDom(petString,'petsDiv');
 };
 cardBuilder();
 
+// Pet Btns Click Events 
 const petsBtnEvents  = (e) => {
   const petBtnClicked = e.target.id;
   if (petBtnClicked === 'cats') {
@@ -145,12 +149,12 @@ const petsBtnEvents  = (e) => {
 
 
 
-
+// Function to clear out petsDiv after cat,dog,dino btns are clicked
 const clearPetsDiv = () => {
  let pDiv = document.getElementById('petsDiv').innerHTML = '';
 };
 
-
+// Pet Btns captured and event listeners added
 const btnEvents = () =>{
 const catsBtn =  document.getElementById('cats').addEventListener('click', petsBtnEvents);
 const dogsBtn =  document.getElementById('dogs').addEventListener('click', petsBtnEvents);
@@ -159,6 +163,7 @@ const dinosBtn =  document.getElementById('dinos').addEventListener('click', pet
 btnEvents();
 
 
+// Function to filter thru the pets btns click to show desired pet
 const petsFilterBuilder =(pet)=> {
   let filterString = '';
   filterString += `<div class='card'>`;
@@ -175,3 +180,17 @@ const petsFilterBuilder =(pet)=> {
   return filterString;
 };
 
+
+// Show ALL Pets Function-- Btn ('all')
+const allPets = (e) => {
+  const all = e.target.id;
+  if(all === 'all'){
+    clearPetsDiv();
+    cardBuilder(pets);
+  }
+};
+// Show All Btn captured and event listener added
+const showAll = () => {
+  const allBtn = document.getElementById('all').addEventListener('click',allPets);
+}
+showAll();
