@@ -25,7 +25,7 @@ html, body {
   margin: 25px;
   width:250px;
   box-shadow:0 4px 8px 0 rgba(0,0,0,0.6);
-
+  background-color: lightblue;
 }
 
 .title{
@@ -57,6 +57,7 @@ img{
   border-radius: 25px;
   margin:15px;
   background-color: lightgrey;
+  border: solid black;
 }
 
 #btns{
