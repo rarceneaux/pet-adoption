@@ -13,7 +13,7 @@ html, body {
   background-color: white;
   width: 100%;
 }
-#pets{
+#petsDiv{
   display:flex;
   flex-direction: row;
   justify-content: center;
@@ -22,20 +22,29 @@ html, body {
 
 .card{
   border:solid black 2px;
+  border-radius: 10px;
   margin: 25px;
-  width:250px;
+  width:300px;
+  height:450px;
   box-shadow:0 4px 8px 0 rgba(0,0,0,0.6);
-  background-color: lightblue;
 }
 
 .title{
   text-align: center;
-}
+  font-weight: bold;
+  /* padding: 10px; */
+  }
+
+/* .top{
+  background-color: blue  
+} */
+
 
 img{
   width: 200px;
   border:solid;
-  padding:10px
+  border-radius:25px;
+  padding:10px;
 }
 
 .pic{
@@ -52,9 +61,9 @@ img{
 }
 
 .btns{
-  width:50px;
-  height: 50px;
-  border-radius: 25px;
+  width:90px;
+  height: 90px;
+  border-radius: 44px;
   margin:15px;
   background-color: lightgrey;
   border: solid black;
@@ -65,5 +74,9 @@ img{
 }
 
 #heading{
+  text-align: center;
+}
+
+.type{
   text-align: center;
 }

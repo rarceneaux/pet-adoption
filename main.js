@@ -1,4 +1,4 @@
-const pets = [
+let pets = [
 
           {
             image:'https://i1.wp.com/www.PartisanIssues.com/wp-content/uploads/2019/02/AI-cat-9.jpg?ssl=1',
@@ -43,14 +43,14 @@ const pets = [
             typeofPet:'Dog',
           },
           {
-            image:'https://i1.wp.com/www.PartisanIssues.com/wp-content/uploads/2019/02/AI-cat-9.jpg?ssl=1',
+            image:'https://global-free-classified-ads-s02.r.worldssl.net/user_images/6882910.jpg',
             name:'Lil Bit',
             color:'Blue',
             specialSkill:'Barking Loudly',
             typeofPet:'Dog',
           },
           {
-            image:'https://global-free-classified-ads-s02.r.worldssl.net/user_images/6882910.jpg',
+            image:'https://news.artnet.com/app/news-upload/2018/01/2.-Riley-the-dog-at-the-Museum-of-Fine-Arts-Boston-256x256.jpg',
             name:'Kobe',
             color:'Blue',
             specialSkill:'Swimming',
@@ -64,21 +64,21 @@ const pets = [
             typeofPet:'Dino',
           },
           {
-            image:'https://is4-ssl.mzstatic.com/image/thumb/Purple113/v4/c6/fc/67/c6fc6788-14ab-ef49-ee64-7b773b3a6811/source/256x256bb.jpg',
+            image:'https://is5-ssl.mzstatic.com/image/thumb/Purple123/v4/8c/d1/8c/8cd18c29-34c2-beb8-33b0-8e8afa181785/source/256x256bb.jpg',
             name:'Steve',
             color:'Red',
             specialSkill:'Going Back in Time',
             typeofPet:'Dino',
           },
           {
-            image:'https://is4-ssl.mzstatic.com/image/thumb/Purple113/v4/c6/fc/67/c6fc6788-14ab-ef49-ee64-7b773b3a6811/source/256x256bb.jpg',
+            image:'https://vignette.wikia.nocookie.net/solforge/images/3/36/Stouthide_Stegadon_1.jpg/revision/latest?cb=20151122063022',
             name:'Kerry',
             color:'Red',
             specialSkill:'Basketball',
             typeofPet:'Dino',
           },
           {
-            image:'https://is4-ssl.mzstatic.com/image/thumb/Purple113/v4/c6/fc/67/c6fc6788-14ab-ef49-ee64-7b773b3a6811/source/256x256bb.jpg',
+            image:'https://miro.medium.com/fit/c/256/256/0*Rg_tOPLo9WXq2K-P.jpg',
             name:'Baby Sinclair',
             color:'Red',
             specialSkill:'Football',
@@ -90,24 +90,88 @@ const printToDom = (stringToPrint, divId) =>{
   selectedDiv.innerHTML += stringToPrint;
 };
 
+
+
 const cardBuilder = () => {
   petString = '';
-  pets.forEach((animal) =>{
+  for(let i =0;i< pets.length;i++){
+    // console.log(pets[i]);
   petString += `<div class='card'>`;
-  petString += `<h1 class='title'>${animal.name}</h1>`;
-  petString += `<div class='pic'>`;
-  petString += `<img src='${animal.image}' class='pic'>`;
-  petString +=  `</div>`;
-  petString +=  `<h4 class='color'>${animal.color}</h4>`;
-  petString +=  `<h4 class='pet-info'>${animal.specialSkill}</h4>`;
-  petString +=  `<footer class='type-color>'${animal.color}</footer>`;
+  petString += `<div class='top'>`;
+  petString += `<h1 class='title'>${pets[i].name}</h1>`;
   petString += `</div>`;
-})
-printToDom(petString,'pets')
+  petString += `<div class='pic'>`;
+  petString += `<img src='${pets[i].image}' class='pic'>`;
+  petString +=  `</div>`;
+  petString +=  `<h4 class='color'>${pets[i].color}</h4>`;
+  petString +=  `<h4 class='pet-info'>${pets[i].specialSkill}</h4>`;
+  petString +=  `<h3 class='type'>${pets[i].typeofPet}</h3>`;
+  petString += `</div>`;
 }
+printToDom(petString,'petsDiv');
+
+};
 cardBuilder();
 
+const petsBtnEvents  = (e) => {
+  const petBtnClicked = e.target.id;
+  if (petBtnClicked === 'cats') {
+    let catString = '';
+   for(let i =0;i<pets.length;i++)
+   if (pets[i].typeofPet === 'Cat'){
+     catString += petsFilterBuilder(pets[i]);
+     clearPetsDiv();
+   } 
+   printToDom(catString,'petsDiv')
+  } else if 
+    (petBtnClicked === 'dogs'){
+      let dogString = '';
+      for (let i = 0;i<pets.length;i++){
+        if(pets[i].typeofPet === 'Dog'){
+          dogString += petsFilterBuilder(pets[i]);
+          clearPetsDiv();
+        }
+      }
+      printToDom(dogString,'petsDiv');
+      } 
+
+    }
+    
+    
+    
 
 
 
+
+
+
+
+const clearPetsDiv = () => {
+ let pDiv = document.getElementById('petsDiv').innerHTML = '';
+};
+
+
+const btnEvents = () =>{
+const catsBtn =  document.getElementById('cats').addEventListener('click', petsBtnEvents);
+const dogsBtn =  document.getElementById('dogs').addEventListener('click', petsBtnEvents);
+const dinosBtn =  document.getElementById('dinos').addEventListener('click', petsBtnEvents);  
+};
+btnEvents();
+
+
+const petsFilterBuilder =(pet)=> {
+  let filterString = '';
+  filterString += `<div class='card'>`;
+  filterString += `<div class='top'>`;
+  filterString += `<h1 class='title'>${pet.name}</h1>`;
+  filterString += `</div>`;
+  filterString += `<div class='pic'>`;
+  filterString += `<img src='${pet.image}' class='pic'>`;
+  filterString +=  `</div>`;
+  filterString +=  `<h4 class='color'>${pet.color}</h4>`;
+  filterString +=  `<h4 class='pet-info'>${pet.specialSkill}</h4>`;
+  filterString +=  `<h3 class='type'>${pet.typeofPet}</h3>`;
+  filterString += `</div>`;
+  return filterString;
+};
 
