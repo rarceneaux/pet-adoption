@@ -95,15 +95,19 @@ const cardBuilder = () => {
   pets.forEach((animal) =>{
   petString += `<div class='card'>`;
   petString += `<h1 class='title'>${animal.name}</h1>`;
+  petString += `<div class='pic'>`;
   petString += `<img src='${animal.image}' class='pic'>`;
-  petString +=  `<h4 class='color'${animal.color}</h4>`;
-  petString +=  `<h4 class='pet-info'${animal.specialSkill}</h4>`;
-  petString +=  `<footer class='type-color'${animal.color}</footer>`;
+  petString +=  `</div>`;
+  petString +=  `<h4 class='color'>${animal.color}</h4>`;
+  petString +=  `<h4 class='pet-info'>${animal.specialSkill}</h4>`;
+  petString +=  `<footer class='type-color>'${animal.color}</footer>`;
   petString += `</div>`;
 })
 printToDom(petString,'pets')
 }
 cardBuilder();
+
+
 
 
 
