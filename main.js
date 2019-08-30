@@ -4,7 +4,7 @@
 let pets = [
 
           {
-            image:'https://i1.wp.com/www.PartisanIssues.com/wp-content/uploads/2019/02/AI-cat-9.jpg?ssl=1',
+            image:'https://bondvet.com/wp-content/uploads/2019/04/xPeach-Bond-Vet-256x256.jpg.pagespeed.ic.DPUXieWfAF.jpg',
             name:'Ed',
             color:'Green',
             specialSkill:'Eating',
@@ -67,7 +67,7 @@ let pets = [
             typeofPet:'Dino',
           },
           {
-            image:'https://is5-ssl.mzstatic.com/image/thumb/Purple123/v4/8c/d1/8c/8cd18c29-34c2-beb8-33b0-8e8afa181785/source/256x256bb.jpg',
+            image:'https://is4-ssl.mzstatic.com/image/thumb/Purple113/v4/c6/fc/67/c6fc6788-14ab-ef49-ee64-7b773b3a6811/source/256x256bb.jpg',
             name:'Steve',
             color:'Red',
             specialSkill:'Going Back in Time',
@@ -137,18 +137,19 @@ const petsBtnEvents  = (e) => {
         }
       }
       printToDom(dogString,'petsDiv');
-      } 
-
-    }
+      } else {
+        (petBtnClicked === 'dinos')
+        let dinoString = '';
+        for(let i =0;i<pets.length;i++){
+        if (pets[i].typeofPet === 'Dino'){
+          dinoString += petsFilterBuilder(pets[i]);
+          clearPetsDiv();
+        }
+      }
+printToDom(dinoString,'petsDiv');
+}  
+};    
     
-    
-    
-
-
-
-
-
-
 // Function to clear out petsDiv after cat,dog,dino btns are clicked
 const clearPetsDiv = () => {
  let pDiv = document.getElementById('petsDiv').innerHTML = '';
@@ -179,7 +180,6 @@ const petsFilterBuilder =(pet)=> {
   filterString += `</div>`;
   return filterString;
 };
-
 
 // Show ALL Pets Function-- Btn ('all')
 const allPets = (e) => {
