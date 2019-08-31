@@ -114,7 +114,7 @@ const cardBuilder = () => {
 printToDom(petString,'petsDiv');
 
 };
-cardBuilder();
+// cardBuilder();
 
 // Pet Btns Click Events 
 const petsBtnEvents  = (e) => {
@@ -124,7 +124,8 @@ const petsBtnEvents  = (e) => {
    for(let i =0;i<pets.length;i++)
    if (pets[i].typeofPet === 'Cat'){
      catString += petsFilterBuilder(pets[i]);
-     clearPetsDiv();
+    //  clearPetsDiv();
+     petColor(catString);  
    } 
    printToDom(catString,'petsDiv')
   } else if 
@@ -134,6 +135,7 @@ const petsBtnEvents  = (e) => {
         if(pets[i].typeofPet === 'Dog'){
           dogString += petsFilterBuilder(pets[i]);
           clearPetsDiv();
+          petColor(dogString);  
         }
       }
       printToDom(dogString,'petsDiv');
@@ -144,6 +146,7 @@ const petsBtnEvents  = (e) => {
         if (pets[i].typeofPet === 'Dino'){
           dinoString += petsFilterBuilder(pets[i]);
           clearPetsDiv();
+          petColor(dinoString);  
         }
       }
 printToDom(dinoString,'petsDiv');
@@ -175,9 +178,9 @@ const petsFilterBuilder =(pet)=> {
   filterString += `<img src='${pet.image}' class='pic'>`;
   filterString +=  `</div>`;
   filterString +=  `<h4 class='color'>${pet.color}</h4>`;
-  filterString +=  `<h4 class='pet-info'>${pet.specialSkill}</h4>`;
+  filterString +=  `<h4 class='pet-info'>${pet.specialSkill}</h4>`;  
   filterString +=  `<h3 class='type'>${pet.typeofPet}</h3>`;
-  filterString += `</div>`;
+  filterString +=   `</div>`
   return filterString;
 };
 
@@ -194,3 +197,17 @@ const showAll = () => {
   const allBtn = document.getElementById('all').addEventListener('click',allPets);
 }
 showAll();
+
+const petColor = () => {
+  let cardColor = document.getElementsByClassName('type');
+  for(let i =0;i<cardColor.length;i++){
+    if (cardColor[i].textContent === "Dog") {
+       cardColor[i].style.backgroundColor = "blue";
+    } else if (cardColor[i].textContent === "Dino") {
+       cardColor[i].style.backgroundColor = "red";
+    } else { cardColor[i].textContent === "Cat"
+     cardColor[i].style.backgroundColor = "green";
+      }
+    }
+  };
+  petColor();  
