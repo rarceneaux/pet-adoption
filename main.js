@@ -114,7 +114,7 @@ const cardBuilder = () => {
 printToDom(petString,'petsDiv');
 
 };
-// cardBuilder();
+
 
 // Pet Btns Click Events 
 const petsBtnEvents  = (e) => {
@@ -124,8 +124,7 @@ const petsBtnEvents  = (e) => {
    for(let i =0;i<pets.length;i++)
    if (pets[i].typeofPet === 'Cat'){
      catString += petsFilterBuilder(pets[i]);
-    //  clearPetsDiv();
-     petColor(catString);  
+     clearPetsDiv();  
    } 
    printToDom(catString,'petsDiv')
   } else if 
@@ -134,8 +133,7 @@ const petsBtnEvents  = (e) => {
       for (let i = 0;i<pets.length;i++){
         if(pets[i].typeofPet === 'Dog'){
           dogString += petsFilterBuilder(pets[i]);
-          clearPetsDiv();
-          petColor(dogString);  
+          clearPetsDiv();    
         }
       }
       printToDom(dogString,'petsDiv');
@@ -145,8 +143,7 @@ const petsBtnEvents  = (e) => {
         for(let i =0;i<pets.length;i++){
         if (pets[i].typeofPet === 'Dino'){
           dinoString += petsFilterBuilder(pets[i]);
-          clearPetsDiv();
-          petColor(dinoString);  
+          clearPetsDiv();  
         }
       }
 printToDom(dinoString,'petsDiv');
@@ -198,16 +195,5 @@ const showAll = () => {
 }
 showAll();
 
-const petColor = () => {
-  let cardColor = document.getElementsByClassName('type');
-  for(let i =0;i<cardColor.length;i++){
-    if (cardColor[i].textContent === "Dog") {
-       cardColor[i].style.backgroundColor = "blue";
-    } else if (cardColor[i].textContent === "Dino") {
-       cardColor[i].style.backgroundColor = "red";
-    } else { cardColor[i].textContent === "Cat"
-     cardColor[i].style.backgroundColor = "green";
-      }
-    }
-  };
-  petColor();  
+ 
+

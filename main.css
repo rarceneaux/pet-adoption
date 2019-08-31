@@ -4,12 +4,7 @@ html, body {
   }
 
 
-/* #footer{
-  flex-shrink: 0;
-  text-align: center;
-  color:black;
-  width: 100%;
-} */
+
 
 #petsDiv{
   display:flex;
