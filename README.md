@@ -5,7 +5,7 @@
 Use this application to filter through the available pets for adoption by clicking on the button of pet categories. 
  
 ## Screenshot
-![](screenshots/Screen Shot 2019-08-31 at 10.55.06 AM.png)
+![](https://raw.githubusercontent.com/rarceneaux/pet-adoption/master/screenshots/Screen%20Shot%202019-08-31%20at%2010.55.06%20AM.png)
  
 ## How to Run:
   * Clone this project
