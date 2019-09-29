@@ -1,12 +1,14 @@
-# Pet-Adoption 
-As a user, I want to see a listing of all available pets. Each pet should have a card that has all this data:
-{
-Image: xxx
-Name: xxx
-Color: xxx
-Special Skill: xxx
-Type of Pet: xxx
-}
-As a user, I want to see 3 category(type) buttons printed at the top of the page. Each should be a different color. These can be hard-coded.
-I want to be able to click one of the 3 buttons, then only the cards that are in the category(type) should show.
-There should be some way for the user to unfilter the results (ie All Pets button).
+# Pet Adoption 
+
+## Description
+ 
+Use this application to filter through the available pets for adoption by clicking on the button of pet categories. 
+ 
+## Screenshot
+![](screenshots/Screen Shot 2019-08-31 at 10.55.06 AM.png)
+ 
+## How to Run:
+  * Clone this project
+  * Install [http-server] (https://www.npmjs.com/package/http-server) from npm
+  * At the root of this project run the following command: `hs -p 8888`
+  * In your browser navigate to `https://localhost:8888`
